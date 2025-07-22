@@ -5,6 +5,6 @@ log_level: DEBUG
 log_file: logs/model_2.log
 download_directory: downloads
 prometheus_port: 8001
-model_size: "tiny" # for local type
+model_size: "medium" # for local type
 # api_token: "" # for api type
 # url: "" # for api type
