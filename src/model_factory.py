@@ -1,5 +1,5 @@
-from whisper_model import WhisperLocalModel
-from openai_api_model import OpenAIApiModel
+from src.whisper_model import WhisperLocalModel
+from src.openai_api_model import OpenAIApiModel
 
 
 class ModelFactory:

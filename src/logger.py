@@ -1,5 +1,4 @@
 import logging
-import os
 
 
 def setup_logger(name, log_file, level="INFO"):
