@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     command: ["gunicorn", "--bind", "0.0.0.0:6029", "--workers", "1", "app:app"]
     environment:
-      - CONFIG_PATH=../configs/local_1.yml
+      - CONFIG_PATH=configs/local_1.yml
     ports:
       - "6029:6029"
       - "8000:8000"
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile
     command: ["gunicorn", "--bind", "0.0.0.0:6031", "--workers", "1", "app:app"]
     environment:
-      - CONFIG_PATH=../configs/local_2.yml
+      - CONFIG_PATH=configs/local_2.yml
     ports:
       - "6031:6031"
       - "8001:8001"
