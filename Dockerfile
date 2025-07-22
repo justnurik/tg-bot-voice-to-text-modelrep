@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 6029 6031 8000 8001
 
-CMD ["gunicorn", "--bind", "0.0.0.0:6029", "--chdir", "src", "--pythonpath", "/app", "--workers", "1", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:6029", "--workers", "1", "app:app"]

@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["gunicorn", "--bind", "0.0.0.0:6029", "--chdir", "src", "--pythonpath", "/app", "--workers", "1", "app:app"]
+    command: ["gunicorn", "--bind", "0.0.0.0:6029", "--workers", "1", "app:app"]
     environment:
       - CONFIG_PATH=../configs/local_1.yml
     ports:
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["gunicorn", "--bind", "0.0.0.0:6031", "--chdir", "src", "--pythonpath", "/app", "--workers", "1", "app:app"]
+    command: ["gunicorn", "--bind", "0.0.0.0:6031", "--workers", "1", "app:app"]
     environment:
       - CONFIG_PATH=../configs/local_2.yml
     ports:
