@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  model-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["gunicorn", "--bind", "0.0.0.0:6029", "--chdir", "src", "--pythonpath", "/app", "--workers", "1", "app:app"]
+    environment:
+      - CONFIG_PATH=../configs/local_1.yml
+    ports:
+      - "6029:6029"
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+      - ./downloads:/app/downloads
+    networks:
+      - monitoring
+
+  model-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["gunicorn", "--bind", "0.0.0.0:6031", "--chdir", "src", "--pythonpath", "/app", "--workers", "1", "app:app"]
+    environment:
+      - CONFIG_PATH=../configs/local_2.yml
+    ports:
+      - "6031:6031"
+      - "8001:8001"
+    volumes:
+      - ./logs:/app/logs
+      - ./downloads:/app/downloads
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:v2.49.1
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_AUTH_COOKIE_SAMESITE=lax
+      - GF_AUTH_COOKIE_SECURE=false
+      - GF_LOG_LEVEL=debug
+    volumes:
+      - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus-data:
+  grafana-data:
