@@ -13,12 +13,14 @@ config = Config(config_path)
 model_config = config.to_dict()
 model = ModelFactory.create_model(model_config)
 
+print("[MODEL CONFIG]", model_config)
+
 log_file = f"{global_config['log_directory']}/{model_config.get('log_file', f'model_{model_config['name']}.log')}"
 logger = setup_logger(
     model_config["name"], log_file, model_config.get("log_level", "INFO")
 )
 logger.info(
-    f"Starting server for model {model_config['name']} on port {model_config['port']}"
+    f"Starting server for model {model_config["name"]} on port {model_config['port']}"
 )
 
 app = Flask(__name__)
