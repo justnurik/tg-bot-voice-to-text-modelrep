@@ -17,6 +17,8 @@ global_config = {}
 with open("config.yml", "r") as f:
     global_config = yaml.safe_load(f)
 
+os.mkdir(global_config["log_directory"])
+os.mkdir(global_config["download_directory"])
 
 docker_compose_template = Template(
     """version: '3.8'
