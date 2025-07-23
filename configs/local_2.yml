@@ -4,6 +4,4 @@ name: model_2
 log_level: DEBUG
 log_file: model_2.log
 prometheus_port: 8001
-model_size: small # for local type
-# api_token: "" # for api type
-# url: "" # for api type
+model_size: small

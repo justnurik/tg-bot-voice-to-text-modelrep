@@ -66,8 +66,9 @@ def transcribe():
 
         return {"transcription": result}, 200
 
-
-start_http_server(model_config.get("prometheus_port", 8000))
+if model_config.get("prometheus_port"):
+    logger.info(f"Starting Prometheus metrics server on port {model_config['prometheus_port']}")
+    start_http_server(model_config['prometheus_port'])
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=model_config["port"])
