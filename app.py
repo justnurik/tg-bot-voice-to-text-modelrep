@@ -13,7 +13,8 @@ config = Config(config_path)
 model_config = config.to_dict()
 model = ModelFactory.create_model(model_config)
 
-log_file = f"{global_config['log_directory']}/{model_config.get('log_file', f'model_{model_config["name"]}.log')}"
+model_log_file = model_config.get('log_file', f'model_{model_config["name"]}.log')
+log_file = f"{global_config['log_directory']}/{model_log_file}"
 logger = setup_logger(
     model_config["name"], log_file, model_config.get("log_level", "INFO")
 )
