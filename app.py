@@ -6,12 +6,14 @@ from src.config import Config
 from src.model_factory import ModelFactory
 from src.logger import setup_logger
 
+global_config_path = "config.yml"
+global_config = Config(global_config_path).to_dict()
 config_path = os.getenv("CONFIG_PATH")
 config = Config(config_path)
-model_config = config.get_model_config()
+model_config = config.to_dict()
 model = ModelFactory.create_model(model_config)
 
-log_file = model_config.get("log_file", f"logs/model_{model_config['name']}.log")
+log_file = f"{global_config['log_directory']}/{model_config.get('log_file', f'model_{model_config['name']}.log')}"
 logger = setup_logger(
     model_config["name"], log_file, model_config.get("log_level", "INFO")
 )
@@ -48,7 +50,7 @@ def transcribe():
     import tempfile
 
     with tempfile.NamedTemporaryFile(
-        dir=model_config["download_directory"], delete=True
+        dir=global_config["download_directory"], delete=True
     ) as temp_audio_file:
         temp_audio_file.write(audio_data)
         temp_audio_file.flush()

@@ -1,0 +1,12 @@
+prometheus:
+  port: 9090
+
+grafana:
+  port: 3000
+  url: http://localhost:3000
+  admin_user: admin
+  admin_password: grafana
+  log_level: debug
+
+download_directory: downloads
+log_directory: logs

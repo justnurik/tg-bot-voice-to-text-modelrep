@@ -2,8 +2,7 @@ type: local
 port: 6029
 name: local_model_1
 log_level: DEBUG
-log_file: logs/model_1.log
-download_directory: downloads
+log_file: model_1.log
 prometheus_port: 8000
 model_size: medium # for local type
 # api_token: "" # for api type
