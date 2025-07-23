@@ -1,23 +1,7 @@
 version: '3.8'
-
 services:
-  model-1:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: ["gunicorn", "--bind", "0.0.0.0:6029", "--workers", "1", "app:app"]
-    environment:
-      - CONFIG_PATH=configs/local_1.yml
-    ports:
-      - "6029:6029"
-      - "8000:8000"
-    volumes:
-      - ./logs:/app/logs
-      - ./downloads:/app/downloads
-    networks:
-      - monitoring
 
-  model-2:
+  model_2:
     build:
       context: .
       dockerfile: Dockerfile
@@ -27,6 +11,22 @@ services:
     ports:
       - "6031:6031"
       - "8001:8001"
+    volumes:
+      - ./logs:/app/logs
+      - ./downloads:/app/downloads
+    networks:
+      - monitoring
+
+  model_1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["gunicorn", "--bind", "0.0.0.0:6029", "--workers", "1", "app:app"]
+    environment:
+      - CONFIG_PATH=configs/local_1.yml
+    ports:
+      - "6029:6029"
+      - "8000:8000"
     volumes:
       - ./logs:/app/logs
       - ./downloads:/app/downloads

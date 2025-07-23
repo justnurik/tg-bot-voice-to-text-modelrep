@@ -1,10 +1,11 @@
 global:
   scrape_interval: 15s
-
 scrape_configs:
-  - job_name: 'model-1'
+
+  - job_name: 'model_2'
     static_configs:
-      - targets: ['model-1:8000']
-  - job_name: 'model-2'
+      - targets: ['model_2:8001']
+
+  - job_name: 'model_1'
     static_configs:
-      - targets: ['model-2:8001']
+      - targets: ['model_1:8000']

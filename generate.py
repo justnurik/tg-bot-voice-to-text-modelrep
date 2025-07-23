@@ -21,9 +21,7 @@ with open("config.yml", "r") as f:
 # TODO validate configs
 
 docker_compose_template = Template(
-    """
-version: '3.8'
-
+    """version: '3.8'
 services:
 {% for config in configs %}
   {{ config.name }}:
@@ -77,15 +75,12 @@ networks:
 
 volumes:
   prometheus-data:
-  grafana-data:
-"""
+  grafana-data:"""
 )
 
 prometheus_template = Template(
-    """
-global:
+    """global:
   scrape_interval: 15s
-
 scrape_configs:
 {% for config in configs %}
   - job_name: '{{ config.name }}'
@@ -96,8 +91,7 @@ scrape_configs:
 )
 
 dockerfile_template = Template(
-    """
-FROM python:3.9-slim
+    """FROM python:3.9-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -119,9 +113,7 @@ EXPOSE {{ ' '.join(all_ports) }}
 
 
 datasources_template = Template(
-    """
-apiVersion: 1
-
+    """apiVersion: 1
 datasources:
   - name: Prometheus
     type: prometheus

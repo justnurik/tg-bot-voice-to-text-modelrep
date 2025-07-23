@@ -1,6 +1,6 @@
 type: local
 port: 6029
-name: local_model_1
+name: model_1
 log_level: DEBUG
 log_file: model_1.log
 prometheus_port: 8000
