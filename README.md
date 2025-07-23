@@ -7,7 +7,6 @@ This project is a component of [tg-bot-voice-to-text](https://github.com/justnur
 This repository helps you quickly spin up:
 
 * A local Whisper model instance in Docker.
-* Prometheus and Grafana for monitoring (also in Docker).
 
 To simplify setup, there's a script to generate all necessary configuration files. You only need to:
 
@@ -21,14 +20,6 @@ To simplify setup, there's a script to generate all necessary configuration file
 `config.yml` – global project configuration:
 
 ```yaml
-prometheus:
-  port: 9090              # Port where Prometheus will run
-grafana:
-  port: 3000              # Port where Grafana will be accessible
-  url: http://localhost:3000  # Grafana frontend URL
-  admin_user: admin       # Grafana admin username
-  admin_password: grafana # Grafana admin password
-  log_level: debug        # Logging level for services
 download_directory: downloads  # Directory for audio file downloads
 log_directory: logs             # Directory for storing logs
 ```
@@ -51,7 +42,7 @@ model_size: medium        # Whisper model size (tiny, base, small, medium, large
 python generate.py
 ```
 
-#### 3. Start everything in the background
+#### 3. Start the model services in the background
 
 ```bash
 docker-compose up --build -d
@@ -82,7 +73,6 @@ MIT License.
 С помощью этого репозитория можно быстро:
 
 * Запустить модель Whisper в Docker-контейнере.
-* Поднять мониторинг Prometheus и Grafana (также в Docker).
 
 Для удобства есть скрипт генерации конфигурационных файлов. Вам нужно лишь:
 
@@ -96,14 +86,6 @@ MIT License.
 `config.yml` — глобальный конфиг:
 
 ```yaml
-prometheus:
-  port: 9090              # Порт Prometheus
-grafana:
-  port: 3000              # Порт Grafana
-  url: http://localhost:3000  # URL панели Grafana
-  admin_user: admin       # Логин администратора Grafana
-  admin_password: grafana # Пароль администратора Grafana
-  log_level: debug        # Уровень логирования
 download_directory: downloads  # Каталог загрузок аудио
 log_directory: logs             # Каталог для логов
 ```
@@ -126,7 +108,7 @@ model_size: medium        # Размер модели Whisper (tiny, base, small
 python generate.py
 ```
 
-#### 3. Запустите всё в фоне
+#### 3. Запустите сервисы модели в фоне
 
 ```bash
 docker-compose up --build -d
