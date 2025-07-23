@@ -2,7 +2,7 @@
 
 ### Description
 
-This project is a component of [tg-bot-voice-to-text](https://github.com/justnurik/tg-bot-voice-to-text). It provides a ready-to-use way to run your own Telegram bot with OpenAI Whisper speech-to-text model locally.
+This project is a component of [tg-bot-voice-to-text](https://github.com/justnurik/tg-bot-voice-to-text). It is designed to quickly launch the Whisper model from OpenAI.
 
 This repository helps you quickly spin up:
 
@@ -36,7 +36,7 @@ prometheus_port: 8000     # Prometheus metrics endpoint port for this instance
 model_size: medium        # Whisper model size (tiny, base, small, medium, large)
 ```
 
-#### 2. Generate Docker and service configs
+#### 2. Generate Docker configs
 
 ```bash
 python generate.py
@@ -68,7 +68,7 @@ MIT License.
 
 ### Описание
 
-Этот проект является частью [tg-bot-voice-to-text](https://github.com/justnurik/tg-bot-voice-to-text). Он предназначен для быстрого запуска локального Telegram-бота с распознаванием речи через модель Whisper от OpenAI.
+Этот проект является частью [tg-bot-voice-to-text](https://github.com/justnurik/tg-bot-voice-to-text). Он предназначен для быстрого запуска модели Whisper от OpenAI.
 
 С помощью этого репозитория можно быстро:
 
@@ -102,7 +102,7 @@ prometheus_port: 8000     # Порт для метрик Prometheus
 model_size: medium        # Размер модели Whisper (tiny, base, small, medium, large)
 ```
 
-#### 2. Сгенерируйте файлы конфигурации Docker и сервисов
+#### 2. Сгенерируйте файлы конфигурации Docker
 
 ```bash
 python generate.py
