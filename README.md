@@ -14,8 +14,6 @@ To simplify setup, there's a script to generate all necessary configuration file
 * Fill in a global config `config.yml`
 * Provide one or more model configs in the `configs/` folder.
 
----
-
 ### Getting Started
 
 #### 1. Fill out the configuration files
@@ -61,8 +59,6 @@ docker-compose up --build -d
 
 #### 4. Wait a moment until all services are up
 
----
-
 ### Advanced: Use custom models
 
 You can integrate your own model by:
@@ -72,8 +68,6 @@ You can integrate your own model by:
 3. Updating your config files accordingly
 
 Then restart the project.
-
----
 
 ### License
 
@@ -96,8 +90,6 @@ MIT License.
 
 * Заполнить глобальный конфиг `config.yml`
 * Указать, какие модели запускать – в виде файлов `configs/*.yml`
-
----
 
 ### Как запустить
 
@@ -143,8 +135,6 @@ docker-compose up --build -d
 ```
 
 #### 4. Подождите немного — сервисы поднимутся
-
----
 
 ### Расширение: Свои модели
 
