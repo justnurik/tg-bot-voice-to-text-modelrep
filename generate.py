@@ -18,8 +18,6 @@ with open("config.yml", "r") as f:
     global_config = yaml.safe_load(f)
 
 
-# TODO validate configs
-
 docker_compose_template = Template(
     """version: '3.8'
 services:
