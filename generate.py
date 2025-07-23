@@ -26,7 +26,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["gunicorn", "--bind", "0.0.0.0:{{ config.port }}", "--workers", "--timeout", "600", "1", "app:app"]
+    command: ["gunicorn", "--bind", "0.0.0.0:{{ config.port }}", "--workers", "1", "--timeout", "600", "app:app"]
     environment:
       - CONFIG_PATH=configs/{{ config.filename }}
     ports:
